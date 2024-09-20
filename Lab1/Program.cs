@@ -1,28 +1,7 @@
-﻿public class Student
-{
-    private string _name;
+﻿using Lab1;
+using System;
 
-    public int Age { get; set; }
-
-    public Student (string name) {
-        _name = name;
-    }
-
-    public Student(string name, int age)
-    {
-        _name = name;
-        Age = age;
-    }
-
-    public string WriteInfo()
-    {
-        return "Студент " + _name + " имеет возраст " + Age.ToString() + " лет";
-    }
-
-    public void BecomeOlder()
-    {
-        Age += 1;
-    }
-
-
-}
+Student st1 = new Student("Дмитрий", 19);
+Console.WriteLine(st1.WriteInfo());
+st1.BecomeOlder();
+Console.WriteLine(st1.WriteInfo());
