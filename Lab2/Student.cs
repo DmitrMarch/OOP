@@ -12,7 +12,7 @@ namespace Lab2
         private string _name;
         private Game _game;
         private Subject _subject;
-
+        private int _number;
 
         public int Age { get; set; }
 
@@ -21,6 +21,7 @@ namespace Lab2
             _name = name;
             _game = game;
             _subject = subject;
+            _number = 777;
         }
 
         public Student(string name, int age, Game game, Subject subject)
@@ -29,6 +30,7 @@ namespace Lab2
             _game = game;
             _subject = subject;
             Age = age;
+            _number = 777;
         }
 
         public string WriteInfo()
@@ -41,6 +43,16 @@ namespace Lab2
         public void BecomeOlder()
         {
             Age += 1;
+        }
+
+        public void GetNumber(int number)
+        {
+            number = _number;
+        }
+
+        public void RealGetNumber(ref int number)
+        {
+            number = _number;
         }
     }
 }
