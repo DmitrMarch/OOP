@@ -11,7 +11,7 @@ namespace Lab2
     {
         private string _name;
 
-        Subject(string name)
+        public Subject(string name)
         {
             _name = name;
         }

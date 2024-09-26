@@ -10,7 +10,7 @@ namespace Lab2
     {
         string _name;
 
-        Game(string name)
+        public Game(string name)
         {
             _name = name;
         }
