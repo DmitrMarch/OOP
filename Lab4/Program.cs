@@ -1,2 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿namespace Lab4
+{
+    class Program()
+    {
+        static void Main()
+        {
+            Student st1 = new("Никита");
+            st1.WriteStudentType();
+        }
+    }
+}
