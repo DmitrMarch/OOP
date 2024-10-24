@@ -11,22 +11,20 @@ namespace Lab4
     {
         public ITStudent(string name) : base("")
         {
-            PersonType = "айти студент";
         }
 
         public ITStudent(string name, int age) : base("", 0)
         {
-            PersonType = "айти студент";
         }
 
-        public override void WritePersonType()
+        public new void WritePersonType()
         {
-            Console.WriteLine("Я " + " айти" + PersonType);
+            Console.WriteLine("Я" + " айти " + PersonType);
         }
 
-        public new void WriteStudentType()
+        public override void WriteStudentType()
         {
-            Console.WriteLine("Я " + " айти" + PersonType);
+            Console.WriteLine("Я" + " айти " + PersonType);
         }
     }
 }
