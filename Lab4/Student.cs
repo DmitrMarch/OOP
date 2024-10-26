@@ -70,6 +70,11 @@ namespace Lab4
             return "Студент " + _name + " имеет возраст " + Age.ToString() + " лет";
         }
 
+        public override string ToString()
+        {
+            return $"{_name}, {Age}, {_type}, {group}";
+        }
+
         public static void GroupToConsole()
         {
             Console.WriteLine(group);
