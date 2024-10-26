@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace Lab4
+namespace Lab5
 {
     public class ITStudent : Student
     {
