@@ -11,10 +11,13 @@ namespace Lab4
     {
         public ITStudent(string name) : base("")
         {
+            _name = name;
         }
 
         public ITStudent(string name, int age) : base("", 0)
         {
+            _name = name;
+            Age = age;
         }
 
         public new void WritePersonType()

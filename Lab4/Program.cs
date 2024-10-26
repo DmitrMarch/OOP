@@ -10,6 +10,7 @@
             Student st2 = (Student)st1;
             st2.WriteStudentType();
             st2.WritePersonType();
+            Console.WriteLine(st1.ToString());
         }
     }
 }
