@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Lab5
 {
-    public class Student : Person
+    public class Student : IPerson
     {
         public static string group = "";
         protected string _name;
+        protected Subject _subject;
         private string _type = "студент";
 
         public static string Group
@@ -31,23 +32,39 @@ namespace Lab5
             {
                 _type = value;
             }
+
             get
             {
                 return _type;
             }
         }
 
-        public override int Age { get; set; }
-
-        public Student(string name)
+        public string Name 
         {
-            _name = name;
+            set
+            {
+                _name = value!;
+            }
+
+            get
+            {
+                return _name!;
+            }
         }
 
-        public Student(string name, int age)
+        public int Age { get; set; }
+
+        public Student(string name, Subject subject)
         {
-            _name = name;
+            Name = name;
+            _subject = subject;
+        }
+
+        public Student(string name, int age, Subject subject)
+        {
+            Name = name;
             Age = age;
+            _subject = subject;
         }
 
         static Student()
@@ -65,14 +82,15 @@ namespace Lab5
             Console.WriteLine("Я" + " обычный " + PersonType);
         }
 
-        public override string WriteInfo()
+        public string WriteInfo()
         {
-            return "Студент " + _name + " имеет возраст " + Age.ToString() + " лет";
+            return "Студент " + _name + " имеет возраст " + Age.ToString() + " лет\n" +
+                "Его любимый предмет " + _subject.GetSubjectName();
         }
 
         public override string ToString()
         {
-            return $"{_name}, {Age}, {_type}, {group}";
+            return $"{_name}, {Age}, {_type}, {_subject.GetSubjectName()}, {group}";
         }
 
         public static void GroupToConsole()
