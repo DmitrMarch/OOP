@@ -4,8 +4,11 @@
     {
         static void Main()
         {
-            ITStudent st1 = new("Никита", new Subject("математика"));
-            Console.WriteLine(st1.WriteInfo());
+            ITStudent st1 = new("Никита", 20, new Subject("математика"));
+            IPerson pst = st1;
+            ISpecialist itst = st1;
+            Console.WriteLine(pst.WriteInfo());
+            Console.WriteLine(itst.WriteInfo());
         }
     }
 }

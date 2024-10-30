@@ -12,13 +12,13 @@ namespace Lab5
     {
         public ITStudent(string name, Subject subject) : base("", new(""))
         {
-            _name = name;
+            Name = name;
             _subject = subject;
         }
 
         public ITStudent(string name, int age, Subject subject) : base("", 0, new(""))
         {
-            _name = name;
+            Name = name;
             Age = age;
             _subject = subject;
         }
