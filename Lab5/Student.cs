@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab5
 {
-    public class Student : IPerson
+    public class Student : IPerson, ICloneable, IComparable<Student>
     {
         public static string group = "";
         protected string _name = "";
@@ -91,6 +91,20 @@ namespace Lab5
         public override string ToString()
         {
             return $"{_name}, {Age}, {_type}, {_subject.GetSubjectName()}, {group}";
+        }
+
+        public Object Clone()
+        {
+            return new Student(Name, Age, _subject);
+        }
+
+        public int CompareTo(Student? other)
+        {
+            if (Age < other?.Age) return -1;
+
+            else if (Age == other?.Age) return 0;
+
+            else return 1;
         }
 
         public static void GroupToConsole()
