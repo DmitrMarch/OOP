@@ -9,7 +9,7 @@ namespace Lab5
     public class Student : IPerson
     {
         public static string group = "";
-        protected string _name;
+        protected string _name = "";
         protected Subject _subject;
         private string _type = "студент";
 
