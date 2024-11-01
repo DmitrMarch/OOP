@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Lab6
 {
     public class Student : Person
     {
         public static string group = "";
-        protected string _name;
+        private string _name;
+        private int _age;
         private string _type = "студент";
 
         public static string Group
@@ -31,21 +34,36 @@ namespace Lab6
             {
                 _type = value;
             }
+
             get
             {
                 return _type;
             }
         }
 
-        public override int Age { get; set; }
+        public override int Age
+        {
+            get
+            {
+                return _age;
+            }
 
+            set
+            {
+                if (_age < 0) throw new Exception("Age must be a non-negative number");
+                _age = value;
+            }
+        }
         public Student(string name)
         {
+            if (name == "") throw new Exception("Name must contain at least 1 character");
             _name = name;
         }
 
         public Student(string name, int age)
         {
+            if (name == "") throw new Exception("Name must contain at least 1 character");
+            else if (age < 0) throw new Exception("Age must be a non-negative number");
             _name = name;
             Age = age;
         }
