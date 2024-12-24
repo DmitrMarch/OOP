@@ -1,3 +1,5 @@
+using Lab6;
+
 namespace Lab7
 {
     public partial class Form1 : Form
@@ -5,6 +7,12 @@ namespace Lab7
         public Form1()
         {
             InitializeComponent();
+
+            Student st = new("amogus", "", "", "", "", "");
+
+            MessageBox.Show(st.Fullname);
         }
     }
+
+
 }
