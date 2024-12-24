@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab6
+namespace Lab7
 {
     public abstract class Person
     {
-        protected Person(string Fullname)
+        protected Person(string fullname)
         {
-            this.Fullname = Fullname ?? throw new ArgumentNullException(nameof(Fullname));
+            Fullname = fullname ?? throw new ArgumentNullException(nameof(fullname));
         }
 
         public string Fullname { get; set; }

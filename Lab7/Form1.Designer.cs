@@ -28,55 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            StudentName = new DataGridViewTextBoxColumn();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            StudentsTbl = new DataGridView();
+            Fullname = new DataGridViewTextBoxColumn();
             RecordBook = new DataGridViewTextBoxColumn();
-            Departament = new DataGridViewTextBoxColumn();
-            Direction = new DataGridViewTextBoxColumn();
+            Department = new DataGridViewTextBoxColumn();
+            Specification = new DataGridViewTextBoxColumn();
             Group = new DataGridViewTextBoxColumn();
             DateOfAdmission = new DataGridViewTextBoxColumn();
             groupBox1 = new GroupBox();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
-            dateTimePicker1 = new DateTimePicker();
-            textBox3 = new TextBox();
-            comboBox2 = new ComboBox();
-            comboBox1 = new ComboBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            DelBtn = new Button();
+            ModBtn = new Button();
+            AddBtn = new Button();
+            DateOfAdmissionField = new DateTimePicker();
+            GroupField = new TextBox();
+            SpecificationField = new ComboBox();
+            DepartmentField = new ComboBox();
+            RecordBookField = new TextBox();
+            FullnameField = new TextBox();
             listView1 = new ListView();
             groupBox2 = new GroupBox();
-            button5 = new Button();
-            button4 = new Button();
+            ExportBtn = new Button();
+            ImportBtn = new Button();
             label1 = new Label();
-            comboBox3 = new ComboBox();
+            FileTypeField = new ComboBox();
             listView2 = new ListView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)StudentsTbl).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
-            // dataGridView1
+            // StudentsTbl
             // 
-            dataGridView1.BackgroundColor = SystemColors.Control;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { StudentName, RecordBook, Departament, Direction, Group, DateOfAdmission });
-            dataGridView1.GridColor = SystemColors.GradientInactiveCaption;
-            dataGridView1.Location = new Point(12, 12);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(787, 474);
-            dataGridView1.TabIndex = 0;
+            StudentsTbl.AllowUserToAddRows = false;
+            StudentsTbl.AllowUserToDeleteRows = false;
+            StudentsTbl.AllowUserToResizeColumns = false;
+            StudentsTbl.AllowUserToResizeRows = false;
+            StudentsTbl.BackgroundColor = SystemColors.Control;
+            StudentsTbl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            StudentsTbl.Columns.AddRange(new DataGridViewColumn[] { Fullname, RecordBook, Department, Specification, Group, DateOfAdmission });
+            StudentsTbl.GridColor = SystemColors.GradientInactiveCaption;
+            StudentsTbl.Location = new Point(12, 12);
+            StudentsTbl.Name = "StudentsTbl";
+            StudentsTbl.ReadOnly = true;
+            StudentsTbl.RowHeadersVisible = false;
+            StudentsTbl.RowHeadersWidth = 51;
+            StudentsTbl.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            StudentsTbl.Size = new Size(737, 474);
+            StudentsTbl.TabIndex = 0;
+            StudentsTbl.SelectionChanged += StudentsTbl_SelectionChanged;
             // 
-            // StudentName
+            // Fullname
             // 
-            StudentName.HeaderText = "ФИО студента";
-            StudentName.MinimumWidth = 6;
-            StudentName.Name = "StudentName";
-            StudentName.ReadOnly = true;
-            StudentName.Width = 123;
+            Fullname.HeaderText = "ФИО студента";
+            Fullname.MinimumWidth = 6;
+            Fullname.Name = "Fullname";
+            Fullname.ReadOnly = true;
+            Fullname.Width = 123;
             // 
             // RecordBook
             // 
@@ -86,21 +94,21 @@
             RecordBook.ReadOnly = true;
             RecordBook.Width = 143;
             // 
-            // Departament
+            // Department
             // 
-            Departament.HeaderText = "Институт";
-            Departament.MinimumWidth = 6;
-            Departament.Name = "Departament";
-            Departament.ReadOnly = true;
-            Departament.Width = 99;
+            Department.HeaderText = "Институт";
+            Department.MinimumWidth = 6;
+            Department.Name = "Department";
+            Department.ReadOnly = true;
+            Department.Width = 99;
             // 
-            // Direction
+            // Specification
             // 
-            Direction.HeaderText = "Направление";
-            Direction.MinimumWidth = 6;
-            Direction.Name = "Direction";
-            Direction.ReadOnly = true;
-            Direction.Width = 133;
+            Specification.HeaderText = "Направление";
+            Specification.MinimumWidth = 6;
+            Specification.Name = "Specification";
+            Specification.ReadOnly = true;
+            Specification.Width = 133;
             // 
             // Group
             // 
@@ -121,98 +129,103 @@
             // groupBox1
             // 
             groupBox1.BackColor = SystemColors.Window;
-            groupBox1.Controls.Add(button3);
-            groupBox1.Controls.Add(button2);
-            groupBox1.Controls.Add(button1);
-            groupBox1.Controls.Add(dateTimePicker1);
-            groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(comboBox2);
-            groupBox1.Controls.Add(comboBox1);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(DelBtn);
+            groupBox1.Controls.Add(ModBtn);
+            groupBox1.Controls.Add(AddBtn);
+            groupBox1.Controls.Add(DateOfAdmissionField);
+            groupBox1.Controls.Add(GroupField);
+            groupBox1.Controls.Add(SpecificationField);
+            groupBox1.Controls.Add(DepartmentField);
+            groupBox1.Controls.Add(RecordBookField);
+            groupBox1.Controls.Add(FullnameField);
             groupBox1.Controls.Add(listView1);
             groupBox1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
             groupBox1.ForeColor = SystemColors.Highlight;
-            groupBox1.Location = new Point(805, 12);
+            groupBox1.Location = new Point(755, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(338, 315);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Изменение информации о студенте";
             // 
-            // button3
+            // DelBtn
             // 
-            button3.Location = new Point(233, 266);
-            button3.Name = "button3";
-            button3.Size = new Size(94, 29);
-            button3.TabIndex = 11;
-            button3.Text = "Удалить";
-            button3.UseVisualStyleBackColor = true;
+            DelBtn.Location = new Point(233, 266);
+            DelBtn.Name = "DelBtn";
+            DelBtn.Size = new Size(94, 29);
+            DelBtn.TabIndex = 11;
+            DelBtn.Text = "Удалить";
+            DelBtn.UseVisualStyleBackColor = true;
+            DelBtn.Click += DelBtn_Click;
             // 
-            // button2
+            // ModBtn
             // 
-            button2.Location = new Point(112, 266);
-            button2.Name = "button2";
-            button2.Size = new Size(115, 29);
-            button2.TabIndex = 10;
-            button2.Text = "Изменить";
-            button2.UseVisualStyleBackColor = true;
+            ModBtn.Location = new Point(112, 266);
+            ModBtn.Name = "ModBtn";
+            ModBtn.Size = new Size(115, 29);
+            ModBtn.TabIndex = 10;
+            ModBtn.Text = "Изменить";
+            ModBtn.UseVisualStyleBackColor = true;
+            ModBtn.Click += ModBtn_Click;
             // 
-            // button1
+            // AddBtn
             // 
-            button1.Location = new Point(12, 266);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 9;
-            button1.Text = "Добавить";
-            button1.UseVisualStyleBackColor = true;
+            AddBtn.Location = new Point(12, 266);
+            AddBtn.Name = "AddBtn";
+            AddBtn.Size = new Size(94, 29);
+            AddBtn.TabIndex = 9;
+            AddBtn.Text = "Добавить";
+            AddBtn.UseVisualStyleBackColor = true;
+            AddBtn.Click += AddBtn_Click;
             // 
-            // dateTimePicker1
+            // DateOfAdmissionField
             // 
-            dateTimePicker1.Location = new Point(12, 223);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(315, 30);
-            dateTimePicker1.TabIndex = 8;
+            DateOfAdmissionField.Location = new Point(12, 223);
+            DateOfAdmissionField.Name = "DateOfAdmissionField";
+            DateOfAdmissionField.Size = new Size(315, 30);
+            DateOfAdmissionField.TabIndex = 8;
             // 
-            // textBox3
+            // GroupField
             // 
-            textBox3.Location = new Point(12, 187);
-            textBox3.Name = "textBox3";
-            textBox3.PlaceholderText = "Группа";
-            textBox3.Size = new Size(315, 30);
-            textBox3.TabIndex = 7;
+            GroupField.Location = new Point(12, 187);
+            GroupField.Name = "GroupField";
+            GroupField.PlaceholderText = "Группа";
+            GroupField.Size = new Size(315, 30);
+            GroupField.TabIndex = 7;
             // 
-            // comboBox2
+            // SpecificationField
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(12, 150);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(315, 31);
-            comboBox2.TabIndex = 6;
+            SpecificationField.FormattingEnabled = true;
+            SpecificationField.Location = new Point(12, 150);
+            SpecificationField.Name = "SpecificationField";
+            SpecificationField.Size = new Size(315, 31);
+            SpecificationField.TabIndex = 6;
+            SpecificationField.Text = "Прикладная информатика";
             // 
-            // comboBox1
+            // DepartmentField
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(12, 113);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(315, 31);
-            comboBox1.TabIndex = 5;
+            DepartmentField.FormattingEnabled = true;
+            DepartmentField.Location = new Point(12, 113);
+            DepartmentField.Name = "DepartmentField";
+            DepartmentField.Size = new Size(315, 31);
+            DepartmentField.TabIndex = 5;
+            DepartmentField.Text = "ИТНиИТ";
             // 
-            // textBox2
+            // RecordBookField
             // 
-            textBox2.Location = new Point(12, 77);
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "Зачётка";
-            textBox2.Size = new Size(315, 30);
-            textBox2.TabIndex = 4;
+            RecordBookField.Location = new Point(12, 77);
+            RecordBookField.Name = "RecordBookField";
+            RecordBookField.PlaceholderText = "Зачётка";
+            RecordBookField.Size = new Size(315, 30);
+            RecordBookField.TabIndex = 4;
             // 
-            // textBox1
+            // FullnameField
             // 
-            textBox1.Location = new Point(12, 41);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "ФИО";
-            textBox1.Size = new Size(315, 30);
-            textBox1.TabIndex = 3;
+            FullnameField.Location = new Point(12, 41);
+            FullnameField.Name = "FullnameField";
+            FullnameField.PlaceholderText = "ФИО";
+            FullnameField.Size = new Size(315, 30);
+            FullnameField.TabIndex = 3;
             // 
             // listView1
             // 
@@ -227,54 +240,56 @@
             // groupBox2
             // 
             groupBox2.BackColor = SystemColors.Window;
-            groupBox2.Controls.Add(button5);
-            groupBox2.Controls.Add(button4);
+            groupBox2.Controls.Add(ExportBtn);
+            groupBox2.Controls.Add(ImportBtn);
             groupBox2.Controls.Add(label1);
-            groupBox2.Controls.Add(comboBox3);
+            groupBox2.Controls.Add(FileTypeField);
             groupBox2.Controls.Add(listView2);
             groupBox2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
             groupBox2.ForeColor = SystemColors.Highlight;
-            groupBox2.Location = new Point(805, 333);
+            groupBox2.Location = new Point(755, 333);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(338, 153);
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "Работа с файлом";
             // 
-            // button5
+            // ExportBtn
             // 
-            button5.Location = new Point(174, 103);
-            button5.Name = "button5";
-            button5.Size = new Size(153, 29);
-            button5.TabIndex = 11;
-            button5.Text = "Экспорт";
-            button5.UseVisualStyleBackColor = true;
+            ExportBtn.Location = new Point(174, 103);
+            ExportBtn.Name = "ExportBtn";
+            ExportBtn.Size = new Size(153, 29);
+            ExportBtn.TabIndex = 11;
+            ExportBtn.Text = "Экспорт";
+            ExportBtn.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // ImportBtn
             // 
-            button4.Location = new Point(12, 103);
-            button4.Name = "button4";
-            button4.Size = new Size(156, 29);
-            button4.TabIndex = 10;
-            button4.Text = "Импорт";
-            button4.UseVisualStyleBackColor = true;
+            ImportBtn.Location = new Point(12, 103);
+            ImportBtn.Name = "ImportBtn";
+            ImportBtn.Size = new Size(156, 29);
+            ImportBtn.TabIndex = 10;
+            ImportBtn.Text = "Импорт";
+            ImportBtn.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(20, 38);
+            label1.Location = new Point(10, 39);
             label1.Name = "label1";
             label1.Size = new Size(93, 23);
             label1.TabIndex = 4;
             label1.Text = "Тип файла";
             // 
-            // comboBox3
+            // FileTypeField
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(6, 64);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(328, 31);
-            comboBox3.TabIndex = 3;
+            FileTypeField.FormattingEnabled = true;
+            FileTypeField.Items.AddRange(new object[] { "JSON", "XML" });
+            FileTypeField.Location = new Point(12, 64);
+            FileTypeField.Name = "FileTypeField";
+            FileTypeField.Size = new Size(315, 31);
+            FileTypeField.TabIndex = 3;
+            FileTypeField.Text = "JSON";
             // 
             // listView2
             // 
@@ -291,16 +306,17 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(1155, 496);
+            ClientSize = new Size(1103, 496);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Controls.Add(dataGridView1);
+            Controls.Add(StudentsTbl);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Студенты";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)StudentsTbl).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -310,29 +326,29 @@
 
         #endregion
 
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn StudentName;
-        private DataGridViewTextBoxColumn RecordBook;
-        private DataGridViewTextBoxColumn Departament;
-        private DataGridViewTextBoxColumn Direction;
-        private DataGridViewTextBoxColumn Group;
-        private DataGridViewTextBoxColumn DateOfAdmission;
+        private DataGridView StudentsTbl;
         private GroupBox groupBox1;
         private ListView listView1;
-        private TextBox textBox2;
-        private TextBox textBox1;
-        private Button button3;
-        private Button button2;
-        private Button button1;
-        private DateTimePicker dateTimePicker1;
-        private TextBox textBox3;
-        private ComboBox comboBox2;
-        private ComboBox comboBox1;
+        private TextBox RecordBookField;
+        private TextBox FullnameField;
+        private Button DelBtn;
+        private Button ModBtn;
+        private Button AddBtn;
+        private DateTimePicker DateOfAdmissionField;
+        private TextBox GroupField;
+        private ComboBox SpecificationField;
+        private ComboBox DepartmentField;
         private GroupBox groupBox2;
         private ListView listView2;
-        private ComboBox comboBox3;
-        private Button button5;
-        private Button button4;
+        private ComboBox FileTypeField;
+        private Button ExportBtn;
+        private Button ImportBtn;
         private Label label1;
+        private DataGridViewTextBoxColumn Fullname;
+        private DataGridViewTextBoxColumn RecordBook;
+        private DataGridViewTextBoxColumn Department;
+        private DataGridViewTextBoxColumn Specification;
+        private DataGridViewTextBoxColumn Group;
+        private DataGridViewTextBoxColumn DateOfAdmission;
     }
 }
