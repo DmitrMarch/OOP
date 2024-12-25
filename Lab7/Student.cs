@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-namespace Lab7
+﻿namespace Lab7
 {
     public class Student : Person
     {
-        private List<Student> _students = new();
+        // Конструктор для XmlSerializer
+        private Student() : base("")
+        {
+            Fullname = "";
+            RecordBook = "";
+            Department = "";
+            Specification = "";
+            Group = "";
+            DateOfAdmission = "";
+        }
 
         public Student(string fullname, string recordBook, string department, 
             string specification, string group, string dateOfAdmission)
@@ -29,5 +30,18 @@ namespace Lab7
         public string Specification { get; set; }
         public string Group { get; set; }
         public string DateOfAdmission { get; set; }
+
+        public static bool contain(string record_book, List<Student> students_list)
+        {
+            foreach (Student student in students_list)
+            {
+                if (student.RecordBook.Equals(record_book))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }
