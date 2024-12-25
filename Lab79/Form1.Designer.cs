@@ -196,6 +196,7 @@
             // specificationField
             // 
             specificationField.FormattingEnabled = true;
+            specificationField.Items.AddRange(new object[] { "Прикладная информатика,", "Математика и компьютерные науки,", "Прикладная математика и информатика,", "Радиофизика" });
             specificationField.Location = new Point(12, 150);
             specificationField.Name = "specificationField";
             specificationField.Size = new Size(315, 31);
@@ -205,11 +206,13 @@
             // departmentField
             // 
             departmentField.FormattingEnabled = true;
+            departmentField.Items.AddRange(new object[] { "ИТНиИТ", "КЭПиИ", "ИЕН", "ИИЯ" });
             departmentField.Location = new Point(12, 113);
             departmentField.Name = "departmentField";
             departmentField.Size = new Size(315, 31);
             departmentField.TabIndex = 5;
             departmentField.Text = "ИТНиИТ";
+            departmentField.TextChanged += departmentField_TextChanged;
             // 
             // recordBookField
             // 
