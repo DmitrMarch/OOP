@@ -26,11 +26,11 @@ namespace Lab10.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost\\SQLEXPRESS;Initial Catalog=exam_db;Persist Security Info=Tr" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost\\SQLEXPRESS;Initial Catalog=films_db;Persist Security Info=Tr" +
             "ue;User ID=sa;Password=123;TrustServerCertificate=True")]
-        public string exam_dbConnectionString {
+        public string films_dbConnectionString {
             get {
-                return ((string)(this["exam_dbConnectionString"]));
+                return ((string)(this["films_dbConnectionString"]));
             }
         }
     }

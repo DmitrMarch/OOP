@@ -46,10 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="exam_dbDataSet.Designer.cs">
+    <Compile Include="films_dbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>exam_dbDataSet.xsd</DependentUpon>
+      <DependentUpon>films_dbDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="FilmsAdd.cs">
       <SubType>Form</SubType>
@@ -89,16 +89,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="exam_dbDataSet.xsc">
-      <DependentUpon>exam_dbDataSet.xsd</DependentUpon>
+    <None Include="films_dbDataSet.xsc">
+      <DependentUpon>films_dbDataSet.xsd</DependentUpon>
     </None>
-    <None Include="exam_dbDataSet.xsd">
+    <None Include="films_dbDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>exam_dbDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>films_dbDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="exam_dbDataSet.xss">
-      <DependentUpon>exam_dbDataSet.xsd</DependentUpon>
+    <None Include="films_dbDataSet.xss">
+      <DependentUpon>films_dbDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

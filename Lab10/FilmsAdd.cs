@@ -11,7 +11,7 @@ namespace Lab10
         private Form1 _form1;
         private DataGridView _filmsTable;
         private static string _connectionString = "Server=localhost\\" +
-            "SQLEXPRESS; Database=exam_db; TrustServerCertificate=True; " +
+            "SQLEXPRESS; Database=films_db; TrustServerCertificate=True; " +
             "User Id=sa; Password=123;";
 
         public FilmsAdd(Form1 form1, DataGridView table)
@@ -43,6 +43,8 @@ namespace Lab10
                     {
                         filmGenres.Items.Add(film_genre[1]);
                     }
+
+                    filmGenres.Text = _filmGenres[0][1];
 
                     reader.Close();
                 }
