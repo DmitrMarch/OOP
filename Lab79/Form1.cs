@@ -6,6 +6,47 @@ namespace Lab79
     {
         private static int _selectedRowIndx = -1;
 
+        private static Dictionary<string, List<string>> _deps = new()
+        {
+            {
+                "ИТНиИТ",
+                new List<string>()
+                {
+                    "Прикладная информатика",
+                    "Математика и компьютерные науки",
+                    "Прикладная математика и информатика",
+                    "Радиофизика"
+                }
+            },
+            {
+                "КЭПиИ",
+                new List<string>()
+                {
+                    "Сетевое и системное администрирование",
+                    "Информационные системы и программирование",
+                    "Обеспечение информационной безопасности " +
+                        "автоматизированных систем"
+                }
+            },
+            {
+                "ИЕН",
+                new List<string>()
+                {
+                    "Химия",
+                    "Геология",
+                    "Биология"
+                }
+            },
+            {
+                "ИИЯ",
+                new List<string>()
+                {
+                    "Педагогическое образование",
+                    "Лингвистика"
+                }
+            },
+        };
+
         public Form1()
         {
             InitializeComponent();
@@ -13,9 +54,9 @@ namespace Lab79
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            if (!areCorrectFieldValues()) 
-            { 
-                return; 
+            if (!areCorrectFieldValues())
+            {
+                return;
             }
 
             string fullname = fullnameField.Text;
@@ -100,7 +141,7 @@ namespace Lab79
             _selectedRowIndx = -1;
         }
 
-        private void studentsTbl_SelectionChanged(object sender, 
+        private void studentsTbl_SelectionChanged(object sender,
             EventArgs e)
         {
             var rows = studentsTbl.SelectedRows;
@@ -153,14 +194,31 @@ namespace Lab79
             string path_to_file = file_dialog.FileName;
             List<Student> students_list = [];
 
-            if (file_type == "JSON")
+            try
             {
-                students_list = JsonIO.readJSONArray(path_to_file);
+                if (file_type == "JSON")
+                {
+                    students_list = JsonIO.readJSONArray(path_to_file);
+                }
+
+                else
+                {
+                    students_list = XmlIO.readXml(path_to_file);
+                }
             }
 
-            else
+            catch (Newtonsoft.Json.JsonSerializationException)
             {
-                students_list = XmlIO.readXml(path_to_file);
+                MessageBox.Show("Невозможно импортировать данный JSON, " +
+                    "т.к. он не соответствет необходимому формату");
+                return;
+            }
+
+            catch (System.InvalidOperationException)
+            {
+                MessageBox.Show("Невозможно импортировать данный XML, " +
+                    "т.к. он не соответствет необходимому формату");
+                return;
             }
 
             fromStudentsListToTable(students_list);
@@ -284,6 +342,29 @@ namespace Lab79
             }
 
             return true;
+        }
+
+        private void departmentField_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string dep = departmentField.Text;
+                List<string> specs = _deps[dep];
+
+                specificationField.Items.Clear();
+                specificationField.Text = specs[0];
+
+                foreach (string spec in specs)
+                {
+                    specificationField.Items.Add(spec);
+                }
+            }
+
+            catch (KeyNotFoundException)
+            {
+                specificationField.Items.Clear();
+                specificationField.Text = "";
+            }
         }
     }
 }
