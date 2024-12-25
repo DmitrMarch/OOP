@@ -9,7 +9,7 @@ namespace Lab10
     {
         private List<List<string>> _filmGenres = new List<List<string>>();
         private static string _connectionString = "Server=localhost\\" +
-            "SQLEXPRESS; Database=exam_db; TrustServerCertificate=True; " +
+            "SQLEXPRESS; Database=films_db; TrustServerCertificate=True; " +
             "User Id=sa; Password=123;";
 
         public Form1()
@@ -36,11 +36,14 @@ namespace Lab10
 
                     foreach (List<string> film_genre in _filmGenres)
                     {
-                        this.genresField.Items.Add(film_genre[1]);
+                        genresField.Items.Add(film_genre[1]);
                     }
+
+                    genresField.Text = _filmGenres[0][1];
 
                     reader.Close();
                 }
+
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
@@ -50,19 +53,18 @@ namespace Lab10
 
         public void updateTable()
         {
-            this.dataTable1TableAdapter.Fill(this.exam_dbDataSet.DataTable1);
+            dataTable1TableAdapter.Fill(films_dbDataSet.DataTable1);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "exam_dbDataSet.DataTable1". При необходимости она может быть перемещена или удалена.
-            this.dataTable1TableAdapter.Fill(this.exam_dbDataSet.DataTable1);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "films_dbDataSet.DataTable1". При необходимости она может быть перемещена или удалена.
+            dataTable1TableAdapter.Fill(films_dbDataSet.DataTable1);
         }
 
         private void appendBtn_Click(object sender, EventArgs e)
         {
             FilmsAdd films_add = new FilmsAdd(this, this.filmsTable);
-
             films_add.Show();
         }
 
@@ -72,6 +74,7 @@ namespace Lab10
             {
                 MessageBox.Show("Выделите строку для изменения");
             }
+
             else
             {
                 FilmsMod films_mod = new FilmsMod(this, this.filmsTable);

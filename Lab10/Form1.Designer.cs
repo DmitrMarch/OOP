@@ -35,7 +35,7 @@
             this.starttimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.filmtimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataTable1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.exam_dbDataSet = new Lab10.exam_dbDataSet();
+            this.films_dbDataSet = new Lab10.films_dbDataSet();
             this.modifyBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.appendBtn = new System.Windows.Forms.Button();
@@ -45,14 +45,14 @@
             this.genresField = new System.Windows.Forms.ComboBox();
             this.genresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.filmsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.filmsTableAdapter = new Lab10.exam_dbDataSetTableAdapters.filmsTableAdapter();
-            this.genresTableAdapter = new Lab10.exam_dbDataSetTableAdapters.genresTableAdapter();
-            this.tableAdapterManager = new Lab10.exam_dbDataSetTableAdapters.TableAdapterManager();
+            this.filmsTableAdapter = new Lab10.films_dbDataSetTableAdapters.filmsTableAdapter();
+            this.genresTableAdapter = new Lab10.films_dbDataSetTableAdapters.genresTableAdapter();
+            this.tableAdapterManager = new Lab10.films_dbDataSetTableAdapters.TableAdapterManager();
             this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataTable1TableAdapter = new Lab10.exam_dbDataSetTableAdapters.DataTable1TableAdapter();
+            this.dataTable1TableAdapter = new Lab10.films_dbDataSetTableAdapters.DataTable1TableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.filmsTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.exam_dbDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.films_dbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filmsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
@@ -122,12 +122,12 @@
             // dataTable1BindingSource1
             // 
             this.dataTable1BindingSource1.DataMember = "DataTable1";
-            this.dataTable1BindingSource1.DataSource = this.exam_dbDataSet;
+            this.dataTable1BindingSource1.DataSource = this.films_dbDataSet;
             // 
-            // exam_dbDataSet
+            // films_dbDataSet
             // 
-            this.exam_dbDataSet.DataSetName = "exam_dbDataSet";
-            this.exam_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.films_dbDataSet.DataSetName = "films_dbDataSet";
+            this.films_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // modifyBtn
             // 
@@ -215,7 +215,7 @@
             // filmsBindingSource
             // 
             this.filmsBindingSource.DataMember = "films";
-            this.filmsBindingSource.DataSource = this.exam_dbDataSet;
+            this.filmsBindingSource.DataSource = this.films_dbDataSet;
             // 
             // filmsTableAdapter
             // 
@@ -230,12 +230,12 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.filmsTableAdapter = null;
             this.tableAdapterManager.genresTableAdapter = this.genresTableAdapter;
-            this.tableAdapterManager.UpdateOrder = Lab10.exam_dbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UpdateOrder = Lab10.films_dbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // dataTable1BindingSource
             // 
             this.dataTable1BindingSource.DataMember = "DataTable1";
-            this.dataTable1BindingSource.DataSource = this.exam_dbDataSet;
+            this.dataTable1BindingSource.DataSource = this.films_dbDataSet;
             // 
             // dataTable1TableAdapter
             // 
@@ -264,7 +264,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.filmsTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.exam_dbDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.films_dbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.filmsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
@@ -276,9 +276,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView filmsTable;
-        private exam_dbDataSet exam_dbDataSet;
+        private films_dbDataSet films_dbDataSet;
         private System.Windows.Forms.BindingSource filmsBindingSource;
-        private exam_dbDataSetTableAdapters.filmsTableAdapter filmsTableAdapter;
+        private films_dbDataSetTableAdapters.filmsTableAdapter filmsTableAdapter;
         private System.Windows.Forms.Button modifyBtn;
         private System.Windows.Forms.Button deleteBtn;
         private System.Windows.Forms.Button appendBtn;
@@ -286,11 +286,11 @@
         private System.Windows.Forms.Button resetBtn;
         private System.Windows.Forms.Button searchBtn;
         private System.Windows.Forms.ComboBox genresField;
-        private exam_dbDataSetTableAdapters.genresTableAdapter genresTableAdapter;
-        private exam_dbDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private films_dbDataSetTableAdapters.genresTableAdapter genresTableAdapter;
+        private films_dbDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingSource genresBindingSource;
         private System.Windows.Forms.BindingSource dataTable1BindingSource;
-        private exam_dbDataSetTableAdapters.DataTable1TableAdapter dataTable1TableAdapter;
+        private films_dbDataSetTableAdapters.DataTable1TableAdapter dataTable1TableAdapter;
         private System.Windows.Forms.BindingSource dataTable1BindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn filmnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn genre_name;
