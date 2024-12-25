@@ -1,4 +1,4 @@
-using System.Text.RegularExpressions;
+п»їusing System.Text.RegularExpressions;
 
 namespace Lab79
 {
@@ -9,40 +9,40 @@ namespace Lab79
         private static Dictionary<string, List<string>> _deps = new()
         {
             {
-                "ИТНиИТ",
+                "РРўРќРёРРў",
                 new List<string>()
                 {
-                    "Прикладная информатика",
-                    "Математика и компьютерные науки",
-                    "Прикладная математика и информатика",
-                    "Радиофизика"
+                    "РџСЂРёРєР»Р°РґРЅР°СЏ РёРЅС„РѕСЂРјР°С‚РёРєР°",
+                    "РњР°С‚РµРјР°С‚РёРєР° Рё РєРѕРјРїСЊСЋС‚РµСЂРЅС‹Рµ РЅР°СѓРєРё",
+                    "РџСЂРёРєР»Р°РґРЅР°СЏ РјР°С‚РµРјР°С‚РёРєР° Рё РёРЅС„РѕСЂРјР°С‚РёРєР°",
+                    "Р Р°РґРёРѕС„РёР·РёРєР°"
                 }
             },
             {
-                "КЭПиИ",
+                "РљР­РџРёР",
                 new List<string>()
                 {
-                    "Сетевое и системное администрирование",
-                    "Информационные системы и программирование",
-                    "Обеспечение информационной безопасности " +
-                        "автоматизированных систем"
+                    "РЎРµС‚РµРІРѕРµ Рё СЃРёСЃС‚РµРјРЅРѕРµ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ",
+                    "РРЅС„РѕСЂРјР°С†РёРѕРЅРЅС‹Рµ СЃРёСЃС‚РµРјС‹ Рё РїСЂРѕРіСЂР°РјРјРёСЂРѕРІР°РЅРёРµ",
+                    "РћР±РµСЃРїРµС‡РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРѕРЅРЅРѕР№ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё " +
+                        "Р°РІС‚РѕРјР°С‚РёР·РёСЂРѕРІР°РЅРЅС‹С… СЃРёСЃС‚РµРј"
                 }
             },
             {
-                "ИЕН",
+                "РР•Рќ",
                 new List<string>()
                 {
-                    "Химия",
-                    "Геология",
-                    "Биология"
+                    "РҐРёРјРёСЏ",
+                    "Р“РµРѕР»РѕРіРёСЏ",
+                    "Р‘РёРѕР»РѕРіРёСЏ"
                 }
             },
             {
-                "ИИЯ",
+                "РРРЇ",
                 new List<string>()
                 {
-                    "Педагогическое образование",
-                    "Лингвистика"
+                    "РџРµРґР°РіРѕРіРёС‡РµСЃРєРѕРµ РѕР±СЂР°Р·РѕРІР°РЅРёРµ",
+                    "Р›РёРЅРіРІРёСЃС‚РёРєР°"
                 }
             },
         };
@@ -69,7 +69,7 @@ namespace Lab79
 
             if (Student.containRecBook(record_book, students_list))
             {
-                MessageBox.Show("Номера зачётных книжек не должны повторяться");
+                MessageBox.Show("РќРѕРјРµСЂР° Р·Р°С‡С‘С‚РЅС‹С… РєРЅРёР¶РµРє РЅРµ РґРѕР»Р¶РЅС‹ РїРѕРІС‚РѕСЂСЏС‚СЊСЃСЏ");
                 return;
             }
 
@@ -92,7 +92,7 @@ namespace Lab79
         {
             if (_selectedRowIndx == -1)
             {
-                MessageBox.Show("Сначала выберите строку");
+                MessageBox.Show("РЎРЅР°С‡Р°Р»Р° РІС‹Р±РµСЂРёС‚Рµ СЃС‚СЂРѕРєСѓ");
                 return;
             }
 
@@ -114,7 +114,7 @@ namespace Lab79
             if (Student.containRecBook(record_book, students_list) &&
                 (string)cells["RecordBook"].Value != record_book)
             {
-                MessageBox.Show("Номера зачётных книжек не должны повторяться");
+                MessageBox.Show("РќРѕРјРµСЂР° Р·Р°С‡С‘С‚РЅС‹С… РєРЅРёР¶РµРє РЅРµ РґРѕР»Р¶РЅС‹ РїРѕРІС‚РѕСЂСЏС‚СЊСЃСЏ");
                 return;
             }
 
@@ -180,7 +180,7 @@ namespace Lab79
             string file_type_lower = file_type.ToLower();
             OpenFileDialog file_dialog = new();
 
-            file_dialog.Title = $"Выберите {file_type} файл";
+            file_dialog.Title = $"Р’С‹Р±РµСЂРёС‚Рµ {file_type} С„Р°Р№Р»";
             file_dialog.Filter = $"{file_type} " +
                 $"(*.{file_type_lower})|*.{file_type_lower}";
 
@@ -209,15 +209,15 @@ namespace Lab79
 
             catch (Newtonsoft.Json.JsonSerializationException)
             {
-                MessageBox.Show("Невозможно импортировать данный JSON, " +
-                    "т.к. он не соответствет необходимому формату");
+                MessageBox.Show("РќРµРІРѕР·РјРѕР¶РЅРѕ РёРјРїРѕСЂС‚РёСЂРѕРІР°С‚СЊ РґР°РЅРЅС‹Р№ JSON, " +
+                    "С‚.Рє. РѕРЅ РЅРµ СЃРѕРѕС‚РІРµС‚СЃС‚РІРµС‚ РЅРµРѕР±С…РѕРґРёРјРѕРјСѓ С„РѕСЂРјР°С‚Сѓ");
                 return;
             }
 
             catch (System.InvalidOperationException)
             {
-                MessageBox.Show("Невозможно импортировать данный XML, " +
-                    "т.к. он не соответствет необходимому формату");
+                MessageBox.Show("РќРµРІРѕР·РјРѕР¶РЅРѕ РёРјРїРѕСЂС‚РёСЂРѕРІР°С‚СЊ РґР°РЅРЅС‹Р№ XML, " +
+                    "С‚.Рє. РѕРЅ РЅРµ СЃРѕРѕС‚РІРµС‚СЃС‚РІРµС‚ РЅРµРѕР±С…РѕРґРёРјРѕРјСѓ С„РѕСЂРјР°С‚Сѓ");
                 return;
             }
 
@@ -241,7 +241,7 @@ namespace Lab79
             string file_type_lower = file_type.ToLower();
             SaveFileDialog file_dialog = new();
 
-            file_dialog.Title = $"Выберите {file_type} файл";
+            file_dialog.Title = $"Р’С‹Р±РµСЂРёС‚Рµ {file_type} С„Р°Р№Р»";
             file_dialog.Filter = $"{file_type} " +
                 $"(*.{file_type_lower})|*.{file_type_lower}";
             file_dialog.DefaultExt = file_type_lower;
@@ -319,25 +319,25 @@ namespace Lab79
             if (fullname == "" || record_book == "" || department == "" ||
                 specification == "" || group == "" || date_of_admission == "")
             {
-                MessageBox.Show("Заполните все пустые поля");
+                MessageBox.Show("Р—Р°РїРѕР»РЅРёС‚Рµ РІСЃРµ РїСѓСЃС‚С‹Рµ РїРѕР»СЏ");
                 return false;
             }
 
-            if (!Regex.IsMatch(fullname, @"^([А-ЯЁ]{1}[а-яё]* ){2}[А-ЯЁ]{1}[а-яё]*$"))
+            if (!Regex.IsMatch(fullname, @"^([Рђ-РЇРЃ]{1}[Р°-СЏС‘]* ){2}[Рђ-РЇРЃ]{1}[Р°-СЏС‘]*$"))
             {
-                MessageBox.Show("ФИО должно быть строго в формате: Фамилия Имя Отчество");
+                MessageBox.Show("Р¤РРћ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ СЃС‚СЂРѕРіРѕ РІ С„РѕСЂРјР°С‚Рµ: Р¤Р°РјРёР»РёСЏ РРјСЏ РћС‚С‡РµСЃС‚РІРѕ");
                 return false;
             }
 
             if (!Regex.IsMatch(record_book, @"^\d{8}$"))
             {
-                MessageBox.Show("Зачётная книжка должна иметь ровно 8 цифр");
+                MessageBox.Show("Р—Р°С‡С‘С‚РЅР°СЏ РєРЅРёР¶РєР° РґРѕР»Р¶РЅР° РёРјРµС‚СЊ СЂРѕРІРЅРѕ 8 С†РёС„СЂ");
                 return false;
             }
 
-            if (!Regex.IsMatch(group, @"^\d{3}[аб]?-[А-ЯЁ]{2}[оз]$"))
+            if (!Regex.IsMatch(group, @"^\d{3}[Р°Р±]?-[Рђ-РЇРЃ]{2}[РѕР·]$"))
             {
-                MessageBox.Show("Номер группы должен соответствовать примерам: 131б-ПИо, 121-МКз и т.д.");
+                MessageBox.Show("РќРѕРјРµСЂ РіСЂСѓРїРїС‹ РґРѕР»Р¶РµРЅ СЃРѕРѕС‚РІРµС‚СЃС‚РІРѕРІР°С‚СЊ РїСЂРёРјРµСЂР°Рј: 131Р±-РџРРѕ, 121-РњРљР· Рё С‚.Рґ.");
                 return false;
             }
 
