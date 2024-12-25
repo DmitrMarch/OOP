@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Xml.Serialization;
 
-namespace Lab7
+namespace Lab79
 {
     public static class XmlIO
     {

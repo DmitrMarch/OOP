@@ -1,4 +1,4 @@
-﻿namespace Lab7
+﻿namespace Lab79
 {
     public class Student : Person
     {
@@ -31,7 +31,7 @@
         public string Group { get; set; }
         public string DateOfAdmission { get; set; }
 
-        public static bool contain(string record_book, List<Student> students_list)
+        public static bool containRecBook(string record_book, List<Student> students_list)
         {
             foreach (Student student in students_list)
             {

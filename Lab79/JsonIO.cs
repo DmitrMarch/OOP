@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Lab7
+namespace Lab79
 {
     public static class JsonIO
     {
