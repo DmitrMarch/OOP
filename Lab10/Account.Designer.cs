@@ -28,16 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Account));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.eventsTbl = new System.Windows.Forms.DataGridView();
-            this.roleLabel = new System.Windows.Forms.Label();
-            this.loginLabel = new System.Windows.Forms.Label();
             this.eventDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eventType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roleLabel = new System.Windows.Forms.Label();
+            this.loginLabel = new System.Windows.Forms.Label();
+            this.noPower = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.eventsTbl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.noPower)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -81,26 +84,6 @@
             this.eventsTbl.Size = new System.Drawing.Size(641, 296);
             this.eventsTbl.TabIndex = 24;
             // 
-            // roleLabel
-            // 
-            this.roleLabel.AutoSize = true;
-            this.roleLabel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.roleLabel.Location = new System.Drawing.Point(144, 66);
-            this.roleLabel.Name = "roleLabel";
-            this.roleLabel.Size = new System.Drawing.Size(54, 23);
-            this.roleLabel.TabIndex = 26;
-            this.roleLabel.Text = "Текст";
-            // 
-            // loginLabel
-            // 
-            this.loginLabel.AutoSize = true;
-            this.loginLabel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginLabel.Location = new System.Drawing.Point(144, 25);
-            this.loginLabel.Name = "loginLabel";
-            this.loginLabel.Size = new System.Drawing.Size(54, 23);
-            this.loginLabel.TabIndex = 25;
-            this.loginLabel.Text = "Текст";
-            // 
             // eventDate
             // 
             this.eventDate.HeaderText = "Дата события";
@@ -133,12 +116,44 @@
             this.roleName.ReadOnly = true;
             this.roleName.Width = 125;
             // 
+            // roleLabel
+            // 
+            this.roleLabel.AutoSize = true;
+            this.roleLabel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.roleLabel.Location = new System.Drawing.Point(144, 66);
+            this.roleLabel.Name = "roleLabel";
+            this.roleLabel.Size = new System.Drawing.Size(54, 23);
+            this.roleLabel.TabIndex = 26;
+            this.roleLabel.Text = "Текст";
+            // 
+            // loginLabel
+            // 
+            this.loginLabel.AutoSize = true;
+            this.loginLabel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.loginLabel.Location = new System.Drawing.Point(144, 25);
+            this.loginLabel.Name = "loginLabel";
+            this.loginLabel.Size = new System.Drawing.Size(54, 23);
+            this.loginLabel.TabIndex = 25;
+            this.loginLabel.Text = "Текст";
+            // 
+            // noPower
+            // 
+            this.noPower.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.noPower.Image = ((System.Drawing.Image)(resources.GetObject("noPower.Image")));
+            this.noPower.Location = new System.Drawing.Point(37, 112);
+            this.noPower.Name = "noPower";
+            this.noPower.Size = new System.Drawing.Size(641, 296);
+            this.noPower.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.noPower.TabIndex = 27;
+            this.noPower.TabStop = false;
+            // 
             // Account
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(719, 441);
+            this.Controls.Add(this.noPower);
             this.Controls.Add(this.roleLabel);
             this.Controls.Add(this.loginLabel);
             this.Controls.Add(this.eventsTbl);
@@ -151,6 +166,7 @@
             this.Text = "Личный кабинет";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Account_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.eventsTbl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.noPower)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,5 +183,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn eventType;
         private System.Windows.Forms.DataGridViewTextBoxColumn userName;
         private System.Windows.Forms.DataGridViewTextBoxColumn roleName;
+        private System.Windows.Forms.PictureBox noPower;
     }
 }
