@@ -7,6 +7,8 @@ namespace Lab10
 {
     public partial class Form1 : Form
     {
+        private string _userRole = "гость";
+
         private List<List<string>> _filmGenres = new List<List<string>>();
         private static string _connectionString = "Server=localhost\\" +
             "SQLEXPRESS; Database=films_db; TrustServerCertificate=True; " +
@@ -39,6 +41,7 @@ namespace Lab10
                         genresField.Items.Add(film_genre[1]);
                     }
 
+                    genresField.Items.Add("");
                     genresField.Text = _filmGenres[0][1];
 
                     reader.Close();
@@ -53,6 +56,10 @@ namespace Lab10
 
         public void updateTable()
         {
+            BindingSource bs = new BindingSource();
+            bs.DataSource = filmsTable.DataSource;
+            bs.Filter = "";
+            filmsTable.DataSource = bs;
             dataTable1TableAdapter.Fill(films_dbDataSet.DataTable1);
         }
 
@@ -122,8 +129,21 @@ namespace Lab10
             updateTable();
         }
 
-        private void searchBtn_Click(object sender, EventArgs e)
+        private void filterBtn_Click(object sender, EventArgs e)
         {
+            BindingSource bs = new BindingSource();
+            bs.DataSource = filmsTable.DataSource;
+            bs.Filter = filmsTable.Columns[1].Name +
+                $" LIKE '%{genresField.Text}%' AND " +
+                filmsTable.Columns[0].Name +
+                $" LIKE '%{filmNameField.Text}%'";
+            filmsTable.DataSource = bs;
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            Login login = new Login(this);
+            login.Show();
         }
     }
 }
