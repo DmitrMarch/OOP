@@ -1,18 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Lab10
 {
     public partial class Form1 : Form
     {
-        private string _userRole = "гость";
-
         private List<List<string>> _filmGenres = new List<List<string>>();
         private static string _connectionString = "Server=localhost\\" +
             "SQLEXPRESS; Database=films_db; TrustServerCertificate=True; " +
             "User Id=sa; Password=123;";
+        private string _logFilePath = "events.log";
+        private string _logFilePass = "123";
+
+        public string RoleName { get; set; }
+        public string UserName { get; set; }
 
         public Form1()
         {
@@ -41,7 +47,7 @@ namespace Lab10
                         genresField.Items.Add(film_genre[1]);
                     }
 
-                    genresField.Items.Add("");
+                    genresField.Items.Add("Все");
                     genresField.Text = _filmGenres[0][1];
 
                     reader.Close();
@@ -61,6 +67,66 @@ namespace Lab10
             bs.Filter = "";
             filmsTable.DataSource = bs;
             dataTable1TableAdapter.Fill(films_dbDataSet.DataTable1);
+        }
+
+        public static string getSha1Hash(string text)
+        {
+            byte[] textBytes = Encoding.UTF8.GetBytes(text);
+
+            using (SHA1 sha1 = SHA1.Create())
+            {
+                byte[] hashBytes = sha1.ComputeHash(textBytes);
+                StringBuilder sb = new StringBuilder();
+
+                foreach (byte b in hashBytes)
+                {
+                    sb.Append(b.ToString("x2"));
+                }
+
+                return sb.ToString();
+            }
+        }
+
+        public void updateLog(string event_type)
+        {
+            try
+            {
+                string log_file = File.Exists(_logFilePath)
+                    ? File.ReadAllText(_logFilePath)
+                    : string.Empty;
+
+                if (log_file != "")
+                {
+                    log_file = AesCode.decryptText(log_file, _logFilePass);
+                }
+
+                string new_event = DateTime.Now.ToString("dd.MM.yyyy HH:mm") + 
+                    "; " + event_type + "; " + UserName + "; " + RoleName + "\n";
+
+                log_file += new_event;
+                log_file = AesCode.encryptText(log_file, _logFilePass);
+                File.WriteAllText(_logFilePath, log_file);
+            }
+
+            catch (IOException ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}");
+            }
+        }
+
+        public string readLog()
+        {
+            try
+            {
+                string log_file = File.ReadAllText(_logFilePath);
+                return AesCode.decryptText(log_file, _logFilePass);
+            }
+
+            catch (IOException ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}");
+                return string.Empty;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -113,6 +179,7 @@ namespace Lab10
                         del_command.ExecuteNonQuery().ToString();
 
                         MessageBox.Show("Фильм удалён");
+                        updateLog("удаление записи из бд");
                         updateTable();
                     }
 
@@ -131,10 +198,13 @@ namespace Lab10
 
         private void filterBtn_Click(object sender, EventArgs e)
         {
+            string genre_name = genresField.Text == "Все" ? 
+                "" : genresField.Text;
+
             BindingSource bs = new BindingSource();
             bs.DataSource = filmsTable.DataSource;
             bs.Filter = filmsTable.Columns[1].Name +
-                $" LIKE '%{genresField.Text}%' AND " +
+                $" LIKE '%{genre_name}%' AND " +
                 filmsTable.Columns[0].Name +
                 $" LIKE '%{filmNameField.Text}%'";
             filmsTable.DataSource = bs;
@@ -144,6 +214,12 @@ namespace Lab10
         {
             Login login = new Login(this);
             login.Show();
+        }
+
+        private void accountBtn_Click(object sender, EventArgs e)
+        {
+            Account account = new Account(this);
+            account.Show();
         }
     }
 }

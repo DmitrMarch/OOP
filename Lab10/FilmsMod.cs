@@ -101,27 +101,25 @@ namespace Lab10
                     if (reader.Read() && old_film_name != film_name)
                     {
                         reader.Close();
-                        MessageBox.Show("Фильм с таким названием уже есть");
+                        MessageBox.Show("Фильм с таким названием уже есть :(");
+                        return;
                     }
 
-                    else
-                    {
-                        string updateQuery = "UPDATE films SET film_name=@film_name, genre=@genre, " +
-                            "start_time=@start_time, film_time=@film_time " +
-                            "WHERE film_name=@old_film_name";
-                        SqlCommand upd_command = new SqlCommand(updateQuery, connection);
+                    string updateQuery = "UPDATE films SET film_name=@film_name, genre=@genre, " +
+                        "start_time=@start_time, film_time=@film_time " +
+                        "WHERE film_name=@old_film_name";
+                    SqlCommand upd_command = new SqlCommand(updateQuery, connection);
 
-                        upd_command.Parameters.AddWithValue("@film_name", film_name);
-                        upd_command.Parameters.AddWithValue("@genre", genre_id);
-                        upd_command.Parameters.AddWithValue("@start_time", start_time);
-                        upd_command.Parameters.AddWithValue("@film_time", film_time);
-                        upd_command.Parameters.AddWithValue("@old_film_name", old_film_name);
+                    upd_command.Parameters.AddWithValue("@film_name", film_name);
+                    upd_command.Parameters.AddWithValue("@genre", genre_id);
+                    upd_command.Parameters.AddWithValue("@start_time", start_time);
+                    upd_command.Parameters.AddWithValue("@film_time", film_time);
+                    upd_command.Parameters.AddWithValue("@old_film_name", old_film_name);
 
-                        reader.Close();
-                        upd_command.ExecuteNonQuery().ToString();
-                        MessageBox.Show("Фильм изменён");
-                    }
-
+                    reader.Close();
+                    upd_command.ExecuteNonQuery().ToString();
+                    MessageBox.Show("Фильм изменён");
+                    _form1.updateLog("изменение записи в бд");
                     _form1.updateTable();
                 }
 

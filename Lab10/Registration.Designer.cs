@@ -31,8 +31,8 @@
             this.registerBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.filmNameField = new System.Windows.Forms.TextBox();
+            this.loginField = new System.Windows.Forms.TextBox();
+            this.passField = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // registerBtn
@@ -67,22 +67,22 @@
             this.label1.TabIndex = 35;
             this.label1.Text = "Логин =>";
             // 
-            // textBox1
+            // loginField
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(171, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(221, 34);
-            this.textBox1.TabIndex = 34;
+            this.loginField.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.loginField.Location = new System.Drawing.Point(171, 30);
+            this.loginField.Name = "loginField";
+            this.loginField.Size = new System.Drawing.Size(221, 34);
+            this.loginField.TabIndex = 34;
             // 
-            // filmNameField
+            // passField
             // 
-            this.filmNameField.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.filmNameField.Location = new System.Drawing.Point(171, 78);
-            this.filmNameField.Name = "filmNameField";
-            this.filmNameField.PasswordChar = '☺';
-            this.filmNameField.Size = new System.Drawing.Size(221, 34);
-            this.filmNameField.TabIndex = 33;
+            this.passField.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.passField.Location = new System.Drawing.Point(171, 78);
+            this.passField.Name = "passField";
+            this.passField.PasswordChar = '☺';
+            this.passField.Size = new System.Drawing.Size(221, 34);
+            this.passField.TabIndex = 33;
             // 
             // Registration
             // 
@@ -93,8 +93,8 @@
             this.Controls.Add(this.registerBtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.filmNameField);
+            this.Controls.Add(this.loginField);
+            this.Controls.Add(this.passField);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "Registration";
@@ -111,7 +111,7 @@
         private System.Windows.Forms.Button registerBtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox filmNameField;
+        private System.Windows.Forms.TextBox loginField;
+        private System.Windows.Forms.TextBox passField;
     }
 }
