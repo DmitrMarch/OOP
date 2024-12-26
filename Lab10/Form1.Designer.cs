@@ -29,33 +29,36 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.filmsTable = new System.Windows.Forms.DataGridView();
-            this.filmnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genre_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.starttimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.filmtimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataTable1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.films_dbDataSet = new Lab10.films_dbDataSet();
             this.modifyBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.appendBtn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.resetBtn = new System.Windows.Forms.Button();
-            this.searchBtn = new System.Windows.Forms.Button();
+            this.filterBtn = new System.Windows.Forms.Button();
             this.genresField = new System.Windows.Forms.ComboBox();
-            this.genresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.filmsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.filmsTableAdapter = new Lab10.films_dbDataSetTableAdapters.filmsTableAdapter();
             this.genresTableAdapter = new Lab10.films_dbDataSetTableAdapters.genresTableAdapter();
             this.tableAdapterManager = new Lab10.films_dbDataSetTableAdapters.TableAdapterManager();
             this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataTable1TableAdapter = new Lab10.films_dbDataSetTableAdapters.DataTable1TableAdapter();
+            this.filmNameField = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.accountBtn = new System.Windows.Forms.Button();
+            this.film_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genre_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.start_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.film_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.filmsTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.films_dbDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filmsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // filmsTable
@@ -68,10 +71,10 @@
             this.filmsTable.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
             this.filmsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.filmsTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.filmnameDataGridViewTextBoxColumn,
+            this.film_name,
             this.genre_name,
-            this.starttimeDataGridViewTextBoxColumn,
-            this.filmtimeDataGridViewTextBoxColumn});
+            this.start_time,
+            this.film_time});
             this.filmsTable.DataSource = this.dataTable1BindingSource1;
             this.filmsTable.Location = new System.Drawing.Point(33, 38);
             this.filmsTable.Name = "filmsTable";
@@ -82,42 +85,6 @@
             this.filmsTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.filmsTable.Size = new System.Drawing.Size(705, 242);
             this.filmsTable.TabIndex = 0;
-            // 
-            // filmnameDataGridViewTextBoxColumn
-            // 
-            this.filmnameDataGridViewTextBoxColumn.DataPropertyName = "film_name";
-            this.filmnameDataGridViewTextBoxColumn.HeaderText = "Название фильма";
-            this.filmnameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.filmnameDataGridViewTextBoxColumn.Name = "filmnameDataGridViewTextBoxColumn";
-            this.filmnameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.filmnameDataGridViewTextBoxColumn.Width = 155;
-            // 
-            // genre_name
-            // 
-            this.genre_name.DataPropertyName = "genre_name";
-            this.genre_name.HeaderText = "genre_name";
-            this.genre_name.MinimumWidth = 6;
-            this.genre_name.Name = "genre_name";
-            this.genre_name.ReadOnly = true;
-            this.genre_name.Width = 125;
-            // 
-            // starttimeDataGridViewTextBoxColumn
-            // 
-            this.starttimeDataGridViewTextBoxColumn.DataPropertyName = "start_time";
-            this.starttimeDataGridViewTextBoxColumn.HeaderText = "время начала";
-            this.starttimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.starttimeDataGridViewTextBoxColumn.Name = "starttimeDataGridViewTextBoxColumn";
-            this.starttimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.starttimeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // filmtimeDataGridViewTextBoxColumn
-            // 
-            this.filmtimeDataGridViewTextBoxColumn.DataPropertyName = "film_time";
-            this.filmtimeDataGridViewTextBoxColumn.HeaderText = "длительность";
-            this.filmtimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.filmtimeDataGridViewTextBoxColumn.Name = "filmtimeDataGridViewTextBoxColumn";
-            this.filmtimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.filmtimeDataGridViewTextBoxColumn.Width = 125;
             // 
             // dataTable1BindingSource1
             // 
@@ -165,52 +132,38 @@
             this.appendBtn.UseVisualStyleBackColor = false;
             this.appendBtn.Click += new System.EventHandler(this.appendBtn_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(335, 362);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(176, 28);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Жанр для поиска";
-            // 
             // resetBtn
             // 
             this.resetBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.resetBtn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.resetBtn.Location = new System.Drawing.Point(33, 357);
+            this.resetBtn.Location = new System.Drawing.Point(252, 397);
             this.resetBtn.Name = "resetBtn";
-            this.resetBtn.Size = new System.Drawing.Size(104, 42);
+            this.resetBtn.Size = new System.Drawing.Size(268, 42);
             this.resetBtn.TabIndex = 19;
             this.resetBtn.Text = "Сброс";
             this.resetBtn.UseVisualStyleBackColor = false;
             this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
             // 
-            // searchBtn
+            // filterBtn
             // 
-            this.searchBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.searchBtn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.searchBtn.Location = new System.Drawing.Point(143, 357);
-            this.searchBtn.Name = "searchBtn";
-            this.searchBtn.Size = new System.Drawing.Size(103, 42);
-            this.searchBtn.TabIndex = 18;
-            this.searchBtn.Text = "Поиск";
-            this.searchBtn.UseVisualStyleBackColor = false;
-            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
+            this.filterBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.filterBtn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filterBtn.Location = new System.Drawing.Point(525, 397);
+            this.filterBtn.Name = "filterBtn";
+            this.filterBtn.Size = new System.Drawing.Size(213, 42);
+            this.filterBtn.TabIndex = 18;
+            this.filterBtn.Text = "Фильтр";
+            this.filterBtn.UseVisualStyleBackColor = false;
+            this.filterBtn.Click += new System.EventHandler(this.filterBtn_Click);
             // 
             // genresField
             // 
             this.genresField.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.genresField.FormattingEnabled = true;
-            this.genresField.Location = new System.Drawing.Point(526, 359);
+            this.genresField.Location = new System.Drawing.Point(527, 356);
             this.genresField.Name = "genresField";
-            this.genresField.Size = new System.Drawing.Size(212, 36);
+            this.genresField.Size = new System.Drawing.Size(210, 36);
             this.genresField.TabIndex = 25;
-            // 
-            // genresBindingSource
-            // 
-            this.genresBindingSource.DataMember = "genres";
             // 
             // filmsBindingSource
             // 
@@ -241,33 +194,105 @@
             // 
             this.dataTable1TableAdapter.ClearBeforeFill = true;
             // 
+            // filmNameField
+            // 
+            this.filmNameField.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filmNameField.Location = new System.Drawing.Point(253, 357);
+            this.filmNameField.Name = "filmNameField";
+            this.filmNameField.Size = new System.Drawing.Size(264, 34);
+            this.filmNameField.TabIndex = 26;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(29, 365);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(198, 23);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Название фаильма =>";
+            // 
+            // accountBtn
+            // 
+            this.accountBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.accountBtn.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.accountBtn.Location = new System.Drawing.Point(33, 397);
+            this.accountBtn.Name = "accountBtn";
+            this.accountBtn.Size = new System.Drawing.Size(213, 42);
+            this.accountBtn.TabIndex = 27;
+            this.accountBtn.Text = "Личный кабинет";
+            this.accountBtn.UseVisualStyleBackColor = false;
+            // 
+            // film_name
+            // 
+            this.film_name.DataPropertyName = "film_name";
+            this.film_name.HeaderText = "Название фильма";
+            this.film_name.MinimumWidth = 6;
+            this.film_name.Name = "film_name";
+            this.film_name.ReadOnly = true;
+            this.film_name.Width = 155;
+            // 
+            // genre_name
+            // 
+            this.genre_name.DataPropertyName = "genre_name";
+            this.genre_name.HeaderText = "Название жанра";
+            this.genre_name.MinimumWidth = 6;
+            this.genre_name.Name = "genre_name";
+            this.genre_name.ReadOnly = true;
+            this.genre_name.Width = 125;
+            // 
+            // start_time
+            // 
+            this.start_time.DataPropertyName = "start_time";
+            this.start_time.HeaderText = "Время начала";
+            this.start_time.MinimumWidth = 6;
+            this.start_time.Name = "start_time";
+            this.start_time.ReadOnly = true;
+            this.start_time.Width = 125;
+            // 
+            // film_time
+            // 
+            this.film_time.DataPropertyName = "film_time";
+            this.film_time.HeaderText = "Длительность";
+            this.film_time.MinimumWidth = 6;
+            this.film_time.Name = "film_time";
+            this.film_time.ReadOnly = true;
+            this.film_time.Width = 125;
+            // 
+            // genresBindingSource
+            // 
+            this.genresBindingSource.DataMember = "genres";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(772, 435);
+            this.ClientSize = new System.Drawing.Size(772, 474);
+            this.Controls.Add(this.accountBtn);
+            this.Controls.Add(this.filmNameField);
             this.Controls.Add(this.genresField);
             this.Controls.Add(this.modifyBtn);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.appendBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.resetBtn);
-            this.Controls.Add(this.searchBtn);
+            this.Controls.Add(this.filterBtn);
             this.Controls.Add(this.filmsTable);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Фильмы";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Shown += new System.EventHandler(this.Form1_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.filmsTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.films_dbDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.filmsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,9 +307,8 @@
         private System.Windows.Forms.Button modifyBtn;
         private System.Windows.Forms.Button deleteBtn;
         private System.Windows.Forms.Button appendBtn;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button resetBtn;
-        private System.Windows.Forms.Button searchBtn;
+        private System.Windows.Forms.Button filterBtn;
         private System.Windows.Forms.ComboBox genresField;
         private films_dbDataSetTableAdapters.genresTableAdapter genresTableAdapter;
         private films_dbDataSetTableAdapters.TableAdapterManager tableAdapterManager;
@@ -292,10 +316,13 @@
         private System.Windows.Forms.BindingSource dataTable1BindingSource;
         private films_dbDataSetTableAdapters.DataTable1TableAdapter dataTable1TableAdapter;
         private System.Windows.Forms.BindingSource dataTable1BindingSource1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn filmnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox filmNameField;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button accountBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn film_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn genre_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn starttimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn filmtimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn start_time;
+        private System.Windows.Forms.DataGridViewTextBoxColumn film_time;
     }
 }
 
