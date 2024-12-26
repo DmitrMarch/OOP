@@ -35,8 +35,11 @@ namespace Lab10
 
                     while (reader.Read())
                     {
-                        _filmGenres.Add(new List<string> { reader[0].ToString(),
-                            (string)reader[1]});
+                        _filmGenres.Add(new List<string> 
+                        { 
+                            reader[0].ToString(),
+                            (string)reader[1]
+                        });
                     }
 
                     foreach (List<string> film_genre in _filmGenres)
@@ -48,6 +51,7 @@ namespace Lab10
 
                     reader.Close();
                 }
+
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
@@ -88,27 +92,26 @@ namespace Lab10
                     if (reader.Read())
                     {
                         reader.Close();
-                        MessageBox.Show("Фильм с таким названием уже есть");
+                        MessageBox.Show("Фильм с таким названием уже есть :(");
+                        return;
                     }
 
-                    else
-                    {
-                        string insertQuery = "INSERT INTO films " +
-                            "(film_name, genre, start_time, film_time) VALUES " +
-                            "(@film_name, @genre, @start_time, @film_time)";
-                        SqlCommand ins_command = new SqlCommand(insertQuery, connection);
-                        ins_command.Parameters.AddWithValue("@film_name", film_name);
-                        ins_command.Parameters.AddWithValue("@genre", genre_id);
-                        ins_command.Parameters.AddWithValue("@start_time", start_time);
-                        ins_command.Parameters.AddWithValue("@film_time", film_time);
+                    string insertQuery = "INSERT INTO films " +
+                        "(film_name, genre, start_time, film_time) VALUES " +
+                        "(@film_name, @genre, @start_time, @film_time)";
+                    SqlCommand ins_command = new SqlCommand(insertQuery, connection);
+                    ins_command.Parameters.AddWithValue("@film_name", film_name);
+                    ins_command.Parameters.AddWithValue("@genre", genre_id);
+                    ins_command.Parameters.AddWithValue("@start_time", start_time);
+                    ins_command.Parameters.AddWithValue("@film_time", film_time);
 
-                        reader.Close();
-                        ins_command.ExecuteNonQuery().ToString();
-                        MessageBox.Show("Фильм добавлен");
-                    }
-
+                    reader.Close();
+                    ins_command.ExecuteNonQuery().ToString();
+                    MessageBox.Show("Фильм добавлен");
+                    _form1.updateLog("добавление записи в бд");
                     _form1.updateTable();
                 }
+
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);

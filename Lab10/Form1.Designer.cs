@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.filmsTable = new System.Windows.Forms.DataGridView();
+            this.film_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genre_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.start_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.film_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataTable1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.films_dbDataSet = new Lab10.films_dbDataSet();
             this.modifyBtn = new System.Windows.Forms.Button();
@@ -48,10 +52,6 @@
             this.filmNameField = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.accountBtn = new System.Windows.Forms.Button();
-            this.film_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genre_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.start_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.film_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.filmsTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).BeginInit();
@@ -85,6 +85,42 @@
             this.filmsTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.filmsTable.Size = new System.Drawing.Size(705, 242);
             this.filmsTable.TabIndex = 0;
+            // 
+            // film_name
+            // 
+            this.film_name.DataPropertyName = "film_name";
+            this.film_name.HeaderText = "Название фильма";
+            this.film_name.MinimumWidth = 6;
+            this.film_name.Name = "film_name";
+            this.film_name.ReadOnly = true;
+            this.film_name.Width = 155;
+            // 
+            // genre_name
+            // 
+            this.genre_name.DataPropertyName = "genre_name";
+            this.genre_name.HeaderText = "Название жанра";
+            this.genre_name.MinimumWidth = 6;
+            this.genre_name.Name = "genre_name";
+            this.genre_name.ReadOnly = true;
+            this.genre_name.Width = 125;
+            // 
+            // start_time
+            // 
+            this.start_time.DataPropertyName = "start_time";
+            this.start_time.HeaderText = "Время начала";
+            this.start_time.MinimumWidth = 6;
+            this.start_time.Name = "start_time";
+            this.start_time.ReadOnly = true;
+            this.start_time.Width = 125;
+            // 
+            // film_time
+            // 
+            this.film_time.DataPropertyName = "film_time";
+            this.film_time.HeaderText = "Длительность";
+            this.film_time.MinimumWidth = 6;
+            this.film_time.Name = "film_time";
+            this.film_time.ReadOnly = true;
+            this.film_time.Width = 125;
             // 
             // dataTable1BindingSource1
             // 
@@ -196,7 +232,7 @@
             // 
             // filmNameField
             // 
-            this.filmNameField.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filmNameField.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.filmNameField.Location = new System.Drawing.Point(253, 357);
             this.filmNameField.Name = "filmNameField";
             this.filmNameField.Size = new System.Drawing.Size(264, 34);
@@ -222,42 +258,7 @@
             this.accountBtn.TabIndex = 27;
             this.accountBtn.Text = "Личный кабинет";
             this.accountBtn.UseVisualStyleBackColor = false;
-            // 
-            // film_name
-            // 
-            this.film_name.DataPropertyName = "film_name";
-            this.film_name.HeaderText = "Название фильма";
-            this.film_name.MinimumWidth = 6;
-            this.film_name.Name = "film_name";
-            this.film_name.ReadOnly = true;
-            this.film_name.Width = 155;
-            // 
-            // genre_name
-            // 
-            this.genre_name.DataPropertyName = "genre_name";
-            this.genre_name.HeaderText = "Название жанра";
-            this.genre_name.MinimumWidth = 6;
-            this.genre_name.Name = "genre_name";
-            this.genre_name.ReadOnly = true;
-            this.genre_name.Width = 125;
-            // 
-            // start_time
-            // 
-            this.start_time.DataPropertyName = "start_time";
-            this.start_time.HeaderText = "Время начала";
-            this.start_time.MinimumWidth = 6;
-            this.start_time.Name = "start_time";
-            this.start_time.ReadOnly = true;
-            this.start_time.Width = 125;
-            // 
-            // film_time
-            // 
-            this.film_time.DataPropertyName = "film_time";
-            this.film_time.HeaderText = "Длительность";
-            this.film_time.MinimumWidth = 6;
-            this.film_time.Name = "film_time";
-            this.film_time.ReadOnly = true;
-            this.film_time.Width = 125;
+            this.accountBtn.Click += new System.EventHandler(this.accountBtn_Click);
             // 
             // genresBindingSource
             // 
