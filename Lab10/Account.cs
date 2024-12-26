@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Lab10
@@ -26,6 +19,8 @@ namespace Lab10
 
             if (_form1.RoleName == "админ")
             {
+                noPower.Visible = false;
+
                 string log_file = _form1.readLog();
                 string[] events = log_file.Split(new string[] { "\n" }, StringSplitOptions.None);
 
